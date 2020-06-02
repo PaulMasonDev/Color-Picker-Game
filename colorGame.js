@@ -1,10 +1,11 @@
-var numSquares = 6;
+var numSquares = 9;
 var colors = generateRandomColors(numSquares);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var easy = document.querySelector("#easy");
+var medium = document.querySelector("#medium");
 var hard = document.querySelector("#hard");
 var buttonClick = document.querySelector("audio");
 
@@ -18,15 +19,26 @@ easy.addEventListener("click", function() {
 	numSquares = 3;
 	resetColors(numSquares);
 	easy.classList.add("selected");
+	medium.classList.remove("selected");
+	hard.classList.remove("selected");
+
+});
+
+medium.addEventListener("click", function() {
+	numSquares = 6;
+	resetColors(numSquares);
+	medium.classList.add("selected");
+	easy.classList.remove("selected");
 	hard.classList.remove("selected");
 
 });
 
 hard.addEventListener("click", function() {
-	numSquares = 6;
+	numSquares = 9;
 	resetColors(numSquares);
 	hard.classList.add("selected");
 	easy.classList.remove("selected");
+	medium.classList.remove("selected");
 });
 
 
@@ -110,13 +122,20 @@ function resetColors(num) {
 	messageDisplay.textContent = "";
 
 	if (num === 3) {
-		for (var i = 3; i < 6; i++) {
+		for (var i = 3; i < 9; i++) {
 			squares[i].style.display = "none";
 		}
-	}
-	else {
-		for (var i = 3; i < 6; i++) {
+	}  
+	else if (num === 6) {
+		for (var i = 0; i < 6; i++) {
 			squares[i].style.display = "block"
 		}
-	}
+		for (var i = 6; i < 9; i++) {
+			squares[i].style.display = "none"
+		}
+
+	} else
+		for (var i = 0; i < 9; i++) {
+			squares[i].style.display = "block"
+		}
 }
