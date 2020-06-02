@@ -59,6 +59,7 @@ for(var i = 0; i < squares.length; i++) {
 	squares[i].style.backgroundColor = colors[i];
 	//ass click listeners to square
 	squares[i].addEventListener("click", function() {
+		buttonClick.load();	
 		buttonClick.play();
 		var clickedColor = this.style.backgroundColor;
 		if (clickedColor === pickedColor) {
