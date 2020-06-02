@@ -75,3 +75,13 @@ button:hover {
 	color: white;
 	background: steelblue;
 }
+
+#copyright {
+	float: left;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: center;
+	bottom: 0px;
+	width: 100%;
+	color: white;
+}
