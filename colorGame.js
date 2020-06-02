@@ -6,6 +6,7 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var easy = document.querySelector("#easy");
 var hard = document.querySelector("#hard");
+var buttonClick = document.querySelector("audio");
 
 var h1 = document.querySelector("h1");
 
@@ -45,7 +46,8 @@ for(var i = 0; i < squares.length; i++) {
 	//add initial colors to squares
 	squares[i].style.backgroundColor = colors[i];
 	//ass click listeners to square
-	squares[i].addEventListener("click", function() {		
+	squares[i].addEventListener("click", function() {
+		buttonClick.play();
 		var clickedColor = this.style.backgroundColor;
 		if (clickedColor === pickedColor) {
 			messageDisplay.textContent = "Correct!";
